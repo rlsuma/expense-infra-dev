@@ -10,5 +10,3 @@ module "vpc" {
 }
 
 
-# https://github.com/rlsuma/terraform-aws-vpc.git
-# https://github.com/daws-78s/terraform-aws-vpc.git
