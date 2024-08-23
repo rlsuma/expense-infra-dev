@@ -17,15 +17,14 @@ pipeline {
                """
             }
         }
-    }
-    stage('plan') {
+        stage('plan') {
             steps {
                 sh 'echo This is Test'
                 
             }
         }
         
-    
+    }
     post { 
         always { 
             echo 'I will always say Hello again!'
