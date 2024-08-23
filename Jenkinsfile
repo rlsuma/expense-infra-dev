@@ -18,7 +18,12 @@ pipeline {
             }
         }
     }
-        
+        stage('plan') {
+            steps {
+                sh 'echo This is Test'
+                sh 'sleep 10'
+            }
+        }
     
     post { 
         always { 
