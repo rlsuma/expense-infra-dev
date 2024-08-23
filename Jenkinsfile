@@ -13,7 +13,7 @@ pipeline {
         stage('Init') {
             steps {
                sh """
-                echo this is test
+                ls -ltr
                """
             }
         }
