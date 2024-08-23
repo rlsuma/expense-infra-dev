@@ -19,10 +19,17 @@ pipeline {
         }
         stage('plan') {
             steps {
-                sh 'echo This is Test'
+                sh 'echo This is plan'
                 
             }
         }
+        stage('Deploy') {
+            steps {
+                sh 'echo This is Deploy'
+                
+            }
+        }
+        
         
     }
     post { 
