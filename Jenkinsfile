@@ -21,24 +21,21 @@ pipeline {
         stage('plan') {
             steps {
                 sh """
-               cd 01-vpc
+                cd 01-vpc
                 terraform plan
-                sh """
-                
+                """
             }
         }
         stage('Deploy') {
-            input {
+             input {
                 message "Should we continue?"
                 ok "Yes, we should."
-                
             }
             steps {
                 sh """
-               cd 01-vpc
+                cd 01-vpc
                 terraform apply -auto-approve
-                sh """
-                
+                """
             }
         }
         
