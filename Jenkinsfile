@@ -11,7 +11,7 @@ pipeline {
     parameters {
         
 
-        choice(name: 'action', choices: ['Apply', 'destroy'], description: 'Pick something')
+        choice(name: 'action', choices: ['Apply', 'Destroy'], description: 'Pick something')
 
         
     }
@@ -25,10 +25,10 @@ pipeline {
                """
             }
         }
-        stage('plan') {
-            when{
+        stage('Plan') {
+            when {
                 expression{
-                    params.action == 'apply'
+                    params.action == 'Apply'
                 }
             }
             steps {
@@ -38,8 +38,13 @@ pipeline {
                 """
             }
         }
-        stage('Deploy') {
-             input {
+         stage('Deploy') {
+            when {
+                expression{
+                    params.action == 'Apply'
+                }
+            }
+            input {
                 message "Should we continue?"
                 ok "Yes, we should."
             }
@@ -51,17 +56,16 @@ pipeline {
             }
         }
          stage('Destroy') {
-             when{
+            when {
                 expression{
-                    params.action == 'destroy'
+                    params.action == 'Destroy'
                 }
+            }
             steps {
                 sh """
                 cd 01-vpc
                 terraform destroy -auto-approve
                 """
-            }
-
             }
         }
     }
