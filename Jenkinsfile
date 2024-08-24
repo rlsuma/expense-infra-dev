@@ -26,6 +26,11 @@ pipeline {
             }
         }
         stage('plan') {
+            when{
+                expression{
+                    params.action == 'apply'
+                }
+            }
             steps {
                 sh """
                 cd 01-vpc
@@ -42,6 +47,18 @@ pipeline {
                 sh """
                 cd 01-vpc
                 terraform apply -auto-approve
+                """
+            }
+        }
+         stage('Deploy') {
+             when{
+                expression{
+                    params.action == 'destroy'
+                }
+            steps {
+                sh """
+                cd 01-vpc
+                terraform destroy -auto-approve
                 """
             }
         }
