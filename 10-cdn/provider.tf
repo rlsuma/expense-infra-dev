@@ -7,7 +7,7 @@ terraform {
   }
   backend "s3" {
     bucket = "my-demo-1"
-    key    = "cdn"
+    key    = "expense-dev-cdn"
     region = "us-east-1"
     dynamodb_table = "devops-0487s"
   }
