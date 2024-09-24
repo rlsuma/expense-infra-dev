@@ -9,7 +9,7 @@ terraform {
     bucket = "my-demo-1"
     key    = "expense-dev-acm"
     region = "us-east-1"
-    dynamodb_table = "devops-0487s"
+    dynamodb_table = "customer"
   }
 }
 

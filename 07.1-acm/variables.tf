@@ -16,9 +16,9 @@ variable "common_tags" {
 }
 
 variable "zone_name" {
-  default = "daws78s.online"
+  default = "rlsu.shop"
 }
 
 variable "zone_id" {
-  default = "Z05124073JVWTP9PHAKZO"
+  default = "Z00551201ZCRCNKYSTSYY"
 }
